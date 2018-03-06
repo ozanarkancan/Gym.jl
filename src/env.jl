@@ -33,7 +33,9 @@ function GymEnv(id::String)
 end
 
 reset!(env::GymEnv) = env.gymenv[:reset]()
-render(env::GymEnv) = env.gymenv[:render]()
+function render(env::GymEnv; mode="human")
+    env.gymenv[:render](mode)
+end
 
 function step!(env::GymEnv, action)
     ob, reward, done, information = env.gymenv[:step](action)
