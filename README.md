@@ -6,7 +6,7 @@ Here is an example usage:
 ```julia
 env = "CartPole-v0"
 reward = 0
-episode_count
+episode_count = 10
 
 for i=1:episode_count
     total = 0
