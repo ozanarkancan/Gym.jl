@@ -1,9 +1,9 @@
 # Gym
 
-This package provides julia interface for the [OpenAi gym](https://github.com/openai/gym).
+This package provides a julia interface for the [OpenAi gym](https://github.com/openai/gym).
 
 Here is an example usage:
-```
+```julia
 env = "CartPole-v0"
 reward = 0
 episode_count
