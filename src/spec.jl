@@ -1,9 +1,9 @@
 struct Spec
-	id
+    id
     trials
     reward_threshold
-	nondeterministic
-	tags
+    nondeterministic
+    tags
     max_episode_steps
-	timestep_limit
+    timestep_limit
 end
