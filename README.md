@@ -2,7 +2,26 @@
 
 This package provides a julia interface for the [OpenAi gym](https://github.com/openai/gym).
 
-Here is an example usage:
+### Installation
+In Julia repl,
+```julia
+Pkg.clone("https://github.com/ozanarkancan/Gym.jl")
+```
+
+If you do not have a gym installation. The package will install for youw with the following command:
+```
+Pkg.build("Gym")
+```
+This makes a minimal installation of the gym. If you want to install free environments, 
+you should set the `GYM_ENVS` environment variable as following:
+
+```julia
+ENV["GYM_ENVS"]="atari:algorithmic:box2d:classic_control"
+```
+Then call the `Pkg.build("Gym")`.
+
+### Usage
+
 ```julia
 using Gym
 
