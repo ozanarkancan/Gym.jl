@@ -12,7 +12,7 @@ end
 
 function GymEnv(id::String)
     try
-        gymenv = gym.make(id)
+        gymenv = gym[:make](id)
         spec = Spec(gymenv[:spec][:id],
                     gymenv[:spec][:trials],
                     gymenv[:spec][:reward_threshold],

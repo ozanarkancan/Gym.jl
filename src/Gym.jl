@@ -1,9 +1,14 @@
+__precompile__()
+
 module Gym
 
 using PyCall
 
-global const gym = PyCall.pywrap(PyCall.pyimport("gym"))
-# package code goes here
+const gym = PyNULL()
+
+function __init__()
+    copy!(gym, pyimport("gym"))
+end
 
 include("env.jl")
 
