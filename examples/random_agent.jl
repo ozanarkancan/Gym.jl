@@ -15,7 +15,7 @@ end
 
 function main(ARGS)
     s = ArgParseSettings()
-    s.description="(c) Ozan Arkan Can, 20186. Demonstration of simple usage of Gym and the implementation of random agent."
+    s.description="(c) Ozan Arkan Can, 2018. Demonstration of simple usage of Gym and the implementation of a random agent."
     s.exc_handler=ArgParse.debug_handler
     @add_arg_table s begin
         ("--env_id"; default="CartPole-v0"; help="environment name")

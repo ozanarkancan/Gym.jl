@@ -1,6 +1,6 @@
 # Gym
 
-This package provides a julia interface for the [OpenAi gym](https://github.com/openai/gym).
+This package provides a julia interface for [OpenAi gym](https://github.com/openai/gym).
 
 ### Installation
 In Julia repl,
