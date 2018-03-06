@@ -14,7 +14,7 @@ function show_available_envs()
     println(map(x->x[:id], gym.envs[:registry][:all]()))
 end
 
-export GymEnv, reset!, step!, render
+export GymEnv, reset!, step!, render, close
 export sample, DiscreteS, BoxS, TupleS
 export show_available_envs
 

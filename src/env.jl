@@ -39,3 +39,5 @@ function step!(env::GymEnv, action)
     ob, reward, done, information = env.gymenv[:step](action)
     return ob, reward, done, information
 end
+
+close!(env::GymEnv) = env.gymenv[:close]()
