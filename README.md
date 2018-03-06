@@ -8,7 +8,7 @@ In Julia repl,
 Pkg.clone("https://github.com/ozanarkancan/Gym.jl")
 ```
 
-If you do not have a gym installation. The package will install for youw with the following command:
+If you do not have a gym installation. The package will install it for you with the following command:
 ```
 Pkg.build("Gym")
 ```
