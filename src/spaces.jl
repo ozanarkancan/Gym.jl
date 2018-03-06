@@ -14,7 +14,20 @@ mutable struct BoxS <: absSpace
     shape
 end
 
-sample(s::BoxS) = rand(s.low:s.high, shape...)
+function sample(s::BoxS)
+    if !isa(s.low, Array{Float32})#Float?
+        r = rand() * (s.high - s.low) - s.low
+        return r
+    elseif length(s.low) == 1
+        r = rand(s.shape...) * (s.high[1] - s.low[1]) + s.low[1]
+        return r
+    elseif size(s.low) == size(s.high)
+        r = rand(s.shape...) .* (s.high - s.low) .+ s.low
+        return r
+    else
+        error("Dimension mismatch")
+    end
+end
 
 mutable struct TupleS <: absSpace
     spaces
@@ -29,7 +42,7 @@ function julia_space(ps)
         return BoxS(ps[:low], ps[:high], ps[:shape])
     elseif class_name == "Tuple"
         spaces = map(julia_space, ps[:spaces])
-        return TupleS(spaces)
+        return TupleS((spaces...))
     else
         error("$class_name has not been supported yet")
     end

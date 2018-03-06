@@ -1,4 +1,4 @@
-ENV["GYM_ENVS"] = "atari:box2d:classic_control"
+ENV["GYM_ENVS"] = "atari:algorithmic:box2d:classic_control"
 for p in ("Gym","ArgParse")
     Pkg.installed(p) == nothing && Pkg.add(p)
 end
