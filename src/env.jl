@@ -43,3 +43,5 @@ function step!(env::GymEnv, action)
 end
 
 close!(env::GymEnv) = env.gymenv[:close]()
+
+seed!(env::GymEnv, seed=nothing) = env.gymenv[:seed](seed)
