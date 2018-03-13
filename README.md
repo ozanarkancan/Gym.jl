@@ -1,5 +1,7 @@
 # Gym
 
+[![Build Status](https://travis-ci.org/ozanarkancan/Gym.jl.svg?branch=master)](https://travis-ci.org/ozanarkancan/Gym.jl)
+
 This package provides a julia interface for [OpenAi gym](https://github.com/openai/gym).
 
 ### Installation
