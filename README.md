@@ -38,10 +38,8 @@ for i=1:episode_count
         ob, reward, done, information = step!(env, action)
         total += reward
         render(env)#comment out this line if you do not want to visualize the environment
-        if done
-            break
-        end
+        done && break
     end
-    println("Epoch $i Total Rewards: $total")
+    println("episode $i total Rewards: $total")
 end
 ```

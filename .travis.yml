@@ -5,9 +5,9 @@ os:
   - osx
 julia:
   - 0.6
-  - nightly
+  - release
 notifications:
-  email: false
+  email: true
 git:
   depth: 99999999
 
@@ -16,6 +16,20 @@ git:
 #matrix:
 #  allow_failures:
 #  - julia: nightly
+#
+env:
+  global:
+    - PYCALL_DEBUG_BUILD="yes"
+  matrix:
+    - PYTHON=python
+    - PYTHON=Conda-python
+
+before_install:
+  - sudo apt-get install python python-setuptools python-dev python-augeas gcc swig dialog
+  - test "x$TRAVIS_OS_NAME" = xosx -o "x$PYTHON" = xConda-python || (sudo apt-get -qq update && sudo apt-get install -y $PYTHON)
+  - pip install --user --upgrade pip
+  - export PATH=$HOME/.local/bin:$PATH
+
 
 ## uncomment and modify the following lines to manually install system packages
 #addons:
@@ -27,7 +41,7 @@ git:
 
 ## uncomment the following lines to override the default test script
 #script:
-#  - julia -e 'Pkg.clone(pwd()); Pkg.build("Gym"); Pkg.test("Gym"; coverage=true)'
+  - julia -e 'Pkg.clone(pwd()); ENV["GYM_ENVS"]="atari:algorithmic:box2d:classic_control"; Pkg.build("Gym"); Pkg.test("Gym"; coverage=true)'
 after_success:
   # push coverage results to Coveralls
   - julia -e 'cd(Pkg.dir("Gym")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
