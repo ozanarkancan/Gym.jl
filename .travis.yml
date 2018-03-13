@@ -2,7 +2,6 @@
 language: julia
 os:
   - linux
-  - osx
 julia:
   - 0.6
   - release
@@ -41,7 +40,7 @@ before_install:
 
 ## uncomment the following lines to override the default test script
 #script:
-  - julia -e 'Pkg.clone(pwd()); ENV["GYM_ENVS"]="atari:algorithmic:box2d:classic_control"; Pkg.build("Gym"); Pkg.test("Gym"; coverage=true)'
+  - sudo julia -e 'Pkg.clone(pwd()); ENV["GYM_ENVS"]="atari:algorithmic:box2d:classic_control"; Pkg.build("Gym"); Pkg.test("Gym"; coverage=true)'
 after_success:
   # push coverage results to Coveralls
   - julia -e 'cd(Pkg.dir("Gym")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
