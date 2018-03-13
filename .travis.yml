@@ -42,6 +42,7 @@ before_install:
 #script:
   - git clone https://github.com/openai/gym
   - cd gym
+  - pip install --user scipy
   - pip install --user -e .
   - pip install --user -e '.[atari]'
   - pip install --user -e '.[box2d]'
