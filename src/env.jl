@@ -14,8 +14,8 @@ function GymEnv(id::String)
     gymenv = nothing
     try
         gymenv = gym[:make](id)
-    catch
-        error("$id is missing")
+    catch e
+        error("Error received during the initialization of $id\n$e")
     end
     
     spec = Spec(gymenv[:spec][:id],
