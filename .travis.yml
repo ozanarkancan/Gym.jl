@@ -40,7 +40,15 @@ before_install:
 
 ## uncomment the following lines to override the default test script
 #script:
-  - sudo julia -e 'Pkg.clone(pwd()); ENV["GYM_ENVS"]="atari:algorithmic:box2d:classic_control"; Pkg.build("Gym"); Pkg.test("Gym"; coverage=true)'
+  - git clone https://github.com/openai/gym
+  - cd gym
+  - pip install --user -e '.[atari]'
+  - pip install --user -e '.[box2d]'
+  - pip install --user -e '.[classic_control]'
+  - pip install --user -e '.[algorithmic]'
+  - cd ..
+  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
+  - julia -e 'Pkg.clone(pwd()); ENV["GYM_ENVS"]="atari:algorithmic:box2d:classic_control"; Pkg.build("Gym"); Pkg.test("Gym"; coverage=true)'
 after_success:
   # push coverage results to Coveralls
   - julia -e 'cd(Pkg.dir("Gym")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
