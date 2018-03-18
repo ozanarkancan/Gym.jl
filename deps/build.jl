@@ -3,11 +3,11 @@ function install_envs()
     if haskey(ENV, "GYM_ENVS")
         envs = split(ENV["GYM_ENVS"], ":")
         for env in envs
-            run(`pip install -U -e .[$env]`)
+            run(`pip install --user -U -e .[$env]`)
             info("$env environment has been installed")
         end
     else
-        run(`pip install -U -e .`)
+        run(`pip install --user -U -e .`)
         info("Minimal installation has been performed")
         info("To install everything, set ENV[\"GYM_ENVS\"]=all")
         info("Then build the package again, Pkg.build(\"Gym\")")
