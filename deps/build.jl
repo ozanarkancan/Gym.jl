@@ -39,6 +39,7 @@ try
     end
 catch
     if !isdir("gym")
+        run(`pip install --user scipy`)
         info("Downloading OpenAi gym")
         run(`git clone https://github.com/openai/gym.git`)
     end
