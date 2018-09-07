@@ -4,8 +4,7 @@ language: julia
 os:
   - linux
 julia:
-  - 0.7
-  - release
+  - 1.0
 notifications:
   email: true
 git:
