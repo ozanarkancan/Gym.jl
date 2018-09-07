@@ -5,9 +5,9 @@
 This package provides a julia interface for [OpenAi gym](https://github.com/openai/gym).
 
 ### Installation
-In Julia repl,
+In pkg repl,
 ```julia
-Pkg.clone("https://github.com/ozanarkancan/Gym.jl")
+add Gym
 ```
 
 If you do not have a gym installation. The package will install it for you with the following command:

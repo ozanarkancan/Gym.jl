@@ -1,4 +1,3 @@
-using Gym
-using Base.Test
+using Gym, Test
 
 include("env.jl")

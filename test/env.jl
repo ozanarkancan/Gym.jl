@@ -1,22 +1,22 @@
 function run_env(env_id)
-    try
-        env = GymEnv(env_id)
-        for i=1:3
-            reset!(env)
-            for j=1:20
-                action = sample(env.action_space)
-                ob, r, done, information = step!(env, action)
-                if done
-                    break
-                end
-            end
+  try
+    env = GymEnv(env_id)
+    for i=1:3
+      reset!(env)
+      for j=1:20
+        action = sample(env.action_space)
+        ob, r, done, information = step!(env, action)
+        if done
+          break
         end
-
-        return true
-    catch y
-        info(y)
-        return false
+      end
     end
+
+    return true
+  catch y
+    @info(y)
+    return false
+  end
 end
 
 algorithmic = ["Copy-v0", "DuplicatedInput-v0", "RepeatCopy-v0",
@@ -39,36 +39,36 @@ toytext = ["Blackjack-v0", "FrozenLake-v0", "FrozenLake8x8-v0",
            "Roulette-v0", "Taxi-v2"]
 
 @testset "Algorithmic" begin
-    @testset for env in algorithmic
-        result = run_env(env)
-        @test result
-    end
+  @testset for env in algorithmic
+    result = run_env(env)
+    @test result
+  end
 end
 
 @testset "Atari" begin
-    @testset for env in atari
-        result = run_env(env)
-        @test result
-    end
+  @testset for env in atari
+    result = run_env(env)
+    @test result
+  end
 end
 
 @testset "Box2d" begin
-    @testset for env in box2d
-        result = run_env(env)
-        @test result
-    end
+  @testset for env in box2d
+    result = run_env(env)
+    @test result
+  end
 end
 
 @testset "Classic Control" begin
-    @testset for env in control
-        result = run_env(env)
-        @test result
-    end
+  @testset for env in control
+    result = run_env(env)
+    @test result
+  end
 end
 
 @testset "Toy Text" begin
-    @testset for env in toytext
-        result = run_env(env)
-        @test result
-    end
+  @testset for env in toytext
+    result = run_env(env)
+    @test result
+  end
 end

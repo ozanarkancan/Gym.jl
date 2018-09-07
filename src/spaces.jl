@@ -19,7 +19,7 @@ function sample(s::BoxS)
         r = rand() * (s.high - s.low) - s.low
         return r
     elseif length(s.low) == 1
-        r = rand(s.shape...) * (s.high[1] - s.low[1]) + s.low[1]
+        r = rand(s.shape...) * (s.high[1] - s.low[1]) .+ s.low[1]
         return r
     elseif size(s.low) == size(s.high)
         r = rand(s.shape...) .* (s.high - s.low) .+ s.low
@@ -41,8 +41,8 @@ function julia_space(ps)
     elseif class_name == "Box"
         return BoxS(ps[:low], ps[:high], ps[:shape])
     elseif class_name == "Tuple"
-        spaces = map(julia_space, ps[:spaces])
-        return TupleS((spaces...))
+        spaces = [julia_space(s) for s in ps[:spaces]]
+        return TupleS((spaces...,))
     else
         error("$class_name has not been supported yet")
     end
