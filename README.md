@@ -12,7 +12,7 @@ add Gym
 
 If you do not have a gym installation. The package will install it for you with the following command:
 ```
-Pkg.build("Gym")
+build Gym
 ```
 This makes a minimal installation of the gym. If you want to install free environments, 
 you should set the `GYM_ENVS` environment variable as following:
@@ -20,7 +20,7 @@ you should set the `GYM_ENVS` environment variable as following:
 ```julia
 ENV["GYM_ENVS"]="atari:algorithmic:box2d:classic_control"
 ```
-Then call the `Pkg.build("Gym")`.
+Then call the `build Gym`.
 
 ### Usage
 
