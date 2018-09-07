@@ -28,7 +28,7 @@ before_install:
   - which python
   - which pip
   - export alias python=python3
-  - export alias pip=pip3
+    # - export alias pip=pip3
   - pip install --user --upgrade pip
   - which python
   - which pip
