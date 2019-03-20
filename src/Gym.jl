@@ -16,7 +16,7 @@ include("env.jl")
 Shows available environments
 """
 function show_available_envs()
-    println(map(x->x[:id], gym.envs[:registry][:all]()))
+    println(map(x->x.id, gym.envs.registry.all()))
 end
 
 export GymEnv, reset!, step!, render, close, seed!
