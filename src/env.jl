@@ -17,15 +17,13 @@ function GymEnv(id::String)
     catch e
         error("Error received during the initialization of $id\n$e")
     end
-    
+
     spec = Spec(gymenv.spec.id,
-                gymenv.spec.trials,
                 gymenv.spec.reward_threshold,
                 gymenv.spec.nondeterministic,
                 gymenv.spec.tags,
-                gymenv.spec.max_episode_steps,
-                gymenv.spec.timestep_limit
-               )
+                gymenv.spec.max_episode_steps
+                )
     action_space = julia_space(gymenv.action_space)
     observation_space = julia_space(gymenv.observation_space)
 
