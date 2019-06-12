@@ -55,9 +55,9 @@ before_install:
 #  - pip install --user -e '.[algorithmic]'
 #  - cd ..
 #  - if [[ -a .git/shallow ]]; then git fetch --unshallow; fi
-  - julia -e 'using Pkg; Pkg.clone(pwd()); ENV["GYM_ENVS"]="atari:algorithmic:box2d:classic_control"; Pkg.build("Gym"); Pkg.test("Gym"; coverage=true)'
+  - julia --project=@. -e 'using Pkg; Pkg.clone(pwd()); ENV["GYM_ENVS"]="atari:algorithmic:box2d:classic_control"; Pkg.build("Gym"); Pkg.test("Gym"; coverage=true)'
 after_success:
   # push coverage results to Coveralls
-  - julia -e 'using Pkg; cd(Pkg.dir("Gym")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
+  - julia --project=@. -e 'using Pkg; cd(Pkg.dir("Gym")); Pkg.add("Coverage"); using Coverage; Coveralls.submit(Coveralls.process_folder())'
   # push coverage results to Codecov
-  - julia -e 'using Pkg; cd(Pkg.dir("Gym")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
+  - julia --project=@. -e 'using Pkg; cd(Pkg.dir("Gym")); Pkg.add("Coverage"); using Coverage; Codecov.submit(Codecov.process_folder())'
