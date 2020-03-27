@@ -21,7 +21,6 @@ function GymEnv(id::String)
     spec = Spec(gymenv.spec.id,
                 gymenv.spec.reward_threshold,
                 gymenv.spec.nondeterministic,
-                gymenv.spec.tags,
                 gymenv.spec.max_episode_steps,
                )
     action_space = julia_space(gymenv.action_space)

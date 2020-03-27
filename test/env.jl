@@ -28,7 +28,7 @@ atari = ["Alien-ram-v0", "Alien-v0", "Assault-ram-v0", "Assault-v0",
          "MontezumaRevenge-ram-v0", "MontezumaRevenge-v0",
          "Pong-ram-v0", "Pong-v0"]
 
-box2d = ["BipedalWalker-v2", "BipedalWalkerHardcore-v2",# "CarRacing-v0", carracing is broken within gym
+box2d = ["BipedalWalker-v3", "BipedalWalkerHardcore-v3",# "CarRacing-v0", carracing is broken within gym
          "LunarLander-v2", "LunarLanderContinuous-v2"]
 
 control = ["Acrobot-v1", "CartPole-v1", "MountainCar-v0",
@@ -36,7 +36,7 @@ control = ["Acrobot-v1", "CartPole-v1", "MountainCar-v0",
 
 toytext = ["Blackjack-v0", "FrozenLake-v0", "FrozenLake8x8-v0",
            "GuessingGame-v0", "HotterColder-v0", "NChain-v0",
-           "Roulette-v0", "Taxi-v2"]
+           "Roulette-v0", "Taxi-v3"]
 
 @testset "Algorithmic" begin
   @testset for env in algorithmic
